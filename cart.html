@@ -3,147 +3,106 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Modern Cart UI</title>
+
+<title>Responsive Product Cart</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
 
 body{
-    margin:0;
-    font-family:Arial;
-    background:linear-gradient(135deg,#e3f2fd,#f5f5f5);
+    background:#f4f6f8;
 }
 
-/* MAIN WRAPPER */
-.wrapper{
-    width:90%;
-    margin:30px auto;
-    display:grid;
-    grid-template-columns:2fr 1fr;
-    gap:20px;
-}
-
-/* CART CARD */
-.cart{
+/* PRODUCT CARD */
+.product-card{
     background:white;
-    border-radius:15px;
-    padding:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.1);
-}
-
-.title{
-    font-size:24px;
-    margin-bottom:20px;
-}
-
-/* ITEM CARD */
-.item{
-    display:flex;
-    gap:15px;
-    padding:15px;
-    margin-bottom:15px;
     border-radius:12px;
-    background:#fafafa;
-    align-items:center;
+    overflow:hidden;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+    text-align:center;
 }
 
-.item img{
-    width:120px;
-    height:120px;
-    border-radius:12px;
+/* IMAGE */
+.product-img{
+    width:100%;
+    height:220px;
     object-fit:cover;
 }
 
-/* DETAILS */
-.details{
-    flex:1;
+/* CONTENT */
+.product-body{
+    padding:15px;
 }
 
-.name{
+/* TITLE */
+.title{
     font-size:18px;
     font-weight:bold;
 }
 
+/* PRICE */
 .price{
-    color:#2e7d32;
+    color:#1b5e20;
     font-size:18px;
     margin:5px 0;
 }
 
-/* QTY */
+/* QTY BOX */
 .qty-box{
     display:flex;
+    justify-content:center;   /* 🔥 CENTER FIX */
     align-items:center;
     gap:10px;
-    margin-top:10px;
-}
-
-.btn{
-    width:32px;
-    height:32px;
-    border:none;
-    background:#1976d2;
-    color:white;
-    font-size:18px;
-    border-radius:6px;
-    cursor:pointer;
-}
-
-.remove{
-    margin-top:10px;
-    background:#e53935;
-    color:white;
-    border:none;
-    padding:8px 12px;
-    border-radius:6px;
-    cursor:pointer;
-}
-
-/* SUMMARY CARD */
-.summary{
-    background:white;
-    border-radius:15px;
-    padding:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.1);
-    height:fit-content;
-}
-
-.row{
-    display:flex;
-    justify-content:space-between;
     margin:12px 0;
 }
 
-.total{
-    font-size:20px;
-    font-weight:bold;
-    color:#2e7d32;
-}
-
-.checkout{
-    width:100%;
-    padding:12px;
-    background:#ff6f00;
-    color:white;
+/* BUTTONS */
+.btn-qty{
+    width:34px;
+    height:34px;
     border:none;
-    border-radius:8px;
-    cursor:pointer;
-    margin-top:15px;
+    background:#0d6efd;
+    color:white;
+    border-radius:6px;
+    font-size:18px;
 }
 
-/* MOBILE */
-@media(max-width:768px){
-    .wrapper{
-        grid-template-columns:1fr;
-    }
+/* REMOVE BUTTON */
+.remove-btn{
+    width:100%;
+    border:none;
+    background:#dc3545;
+    color:white;
+    padding:8px;
+    border-radius:8px;
+}
 
-    .item{
-        flex-direction:column;
+/* SUMMARY */
+.summary{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    position:sticky;
+    top:20px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+/* MOBILE FIX */
+@media(max-width:768px){
+
+    .product-card{
         text-align:center;
     }
 
-    .item img{
-        width:180px;
-        height:180px;
+    .qty-box{
+        justify-content:center; /* 🔥 IMPORTANT MOBILE CENTER */
+    }
+
+    .summary{
+        position:relative;
+        top:0;
+        margin-top:20px;
     }
 }
 
@@ -152,51 +111,67 @@ body{
 
 <body>
 
-<div class="wrapper">
+<div class="container py-4">
 
-    <!-- CART -->
-    <div class="cart">
+<div class="row g-3">
 
-        <div class="title">🛒 My Cart</div>
+    <!-- PRODUCTS -->
+    <div class="col-lg-8">
 
-        <!-- ITEM 1 -->
-        <div class="item" data-price="2999">
+        <h3 class="mb-3 text-center text-md-start">🛒 My Cart</h3>
 
-            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500">
+        <div class="row g-3">
 
-            <div class="details">
+            <!-- ITEM 1 -->
+            <div class="col-md-6">
 
-                <div class="name">Nike Shoes</div>
-                <div class="price">₹2999</div>
+                <div class="product-card" data-price="2999">
 
-                <div class="qty-box">
-                    <button class="btn minus">-</button>
-                    <span class="qty">1</span>
-                    <button class="btn plus">+</button>
+                    <img class="product-img" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500">
+
+                    <div class="product-body">
+
+                        <div class="title">Nike Shoes</div>
+                        <div class="price">₹2999</div>
+
+                        <div class="qty-box">
+                            <button class="btn-qty minus">-</button>
+                            <span class="q">1</span>
+                            <button class="btn-qty plus">+</button>
+                        </div>
+
+                        <button class="remove-btn">Remove</button>
+
+                    </div>
+
                 </div>
 
-                <button class="remove">Remove</button>
             </div>
 
-        </div>
+            <!-- ITEM 2 -->
+            <div class="col-md-6">
 
-        <!-- ITEM 2 -->
-        <div class="item" data-price="1499">
+                <div class="product-card" data-price="1499">
 
-            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=500">
+                    <img class="product-img" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=500">
 
-            <div class="details">
+                    <div class="product-body">
 
-                <div class="name">Smart Watch</div>
-                <div class="price">₹1499</div>
+                        <div class="title">Smart Watch</div>
+                        <div class="price">₹1499</div>
 
-                <div class="qty-box">
-                    <button class="btn minus">-</button>
-                    <span class="qty">1</span>
-                    <button class="btn plus">+</button>
+                        <div class="qty-box">
+                            <button class="btn-qty minus">-</button>
+                            <span class="q">1</span>
+                            <button class="btn-qty plus">+</button>
+                        </div>
+
+                        <button class="remove-btn">Remove</button>
+
+                    </div>
+
                 </div>
 
-                <button class="remove">Remove</button>
             </div>
 
         </div>
@@ -204,80 +179,92 @@ body{
     </div>
 
     <!-- SUMMARY -->
-    <div class="summary">
+    <div class="col-lg-4">
 
-        <h2>Price Summary</h2>
+        <div class="summary">
 
-        <div class="row">
-            <span>Items Total</span>
-            <span id="total">0</span>
+            <h4>Order Summary</h4>
+            <hr>
+
+            <div class="d-flex justify-content-between">
+                <span>Subtotal</span>
+                <span id="sub">₹0</span>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <span>Discount</span>
+                <span>- ₹300</span>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <span>Delivery</span>
+                <span>FREE</span>
+            </div>
+
+            <hr>
+
+            <div class="d-flex justify-content-between fw-bold text-success">
+                <span>Total</span>
+                <span id="total">₹0</span>
+            </div>
+
+            <button class="btn btn-warning w-100 mt-3">
+                Place Order
+            </button>
+
         </div>
-
-        <div class="row">
-            <span>Discount</span>
-            <span>- ₹300</span>
-        </div>
-
-        <div class="row">
-            <span>Delivery</span>
-            <span>FREE</span>
-        </div>
-
-        <hr>
-
-        <div class="row total">
-            <span>Total</span>
-            <span id="final">0</span>
-        </div>
-
-        <button class="checkout">Checkout</button>
 
     </div>
 
 </div>
 
+</div>
+
 <script>
 
-function update(){
+function calc(){
 
-    let total = 0;
+    let sum = 0;
 
-    document.querySelectorAll('.item').forEach(item=>{
-        let price = parseInt(item.dataset.price);
-        let qty = parseInt(item.querySelector('.qty').innerText);
-        total += price * qty;
+    document.querySelectorAll('.product-card').forEach(card=>{
+        let price = parseInt(card.dataset.price);
+        let qty = parseInt(card.querySelector('.q').innerText);
+        sum += price * qty;
     });
 
-    document.getElementById('total').innerText = "₹" + total;
-    document.getElementById('final').innerText = "₹" + (total - 300);
+    document.getElementById('sub').innerText = "₹" + sum;
+    document.getElementById('total').innerText = "₹" + (sum - 300);
 }
 
+// PLUS
 document.querySelectorAll('.plus').forEach(btn=>{
-    btn.onclick = () => {
-        let q = btn.parentElement.querySelector('.qty');
+    btn.onclick = ()=>{
+        let q = btn.parentElement.querySelector('.q');
         q.innerText = parseInt(q.innerText) + 1;
-        update();
+        calc();
     }
 });
 
+// MINUS
 document.querySelectorAll('.minus').forEach(btn=>{
-    btn.onclick = () => {
-        let q = btn.parentElement.querySelector('.qty');
+    btn.onclick = ()=>{
+        let q = btn.parentElement.querySelector('.q');
         if(q.innerText > 1){
             q.innerText--;
-            update();
+            calc();
         }
     }
 });
 
-document.querySelectorAll('.remove').forEach(btn=>{
-    btn.onclick = () => {
-        btn.closest('.item').remove();
-        update();
+// REMOVE
+document.querySelectorAll('.remove-btn').forEach(btn=>{
+    btn.onclick = ()=>{
+        btn.closest('.product-card').remove();
+        calc();
     }
 });
 
-update();
+calc();
 
 </script>
 
