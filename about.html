@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - FlipShop</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial;
+}
+
+body{
+  background:#f1f3f6;
+}
+
+/* HERO */
+.hero{
+  background:linear-gradient(135deg,#2874f0,#00c6ff);
+  color:white;
+  text-align:center;
+  padding:70px 20px;
+}
+
+.hero h1{
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.hero p{
+  font-size:18px;
+  opacity:0.9;
+}
+
+/* SECTION */
+.container{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+  padding:40px 0;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+  margin-top:30px;
+}
+
+/* CARD */
+.card{
+  background:white;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+}
+
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:20px;
+}
+
+.card-content h3{
+  color:#2874f0;
+  margin-bottom:10px;
+}
+
+.card-content p{
+  color:#555;
+  line-height:1.6;
+}
+
+/* STATS */
+.stats{
+  display:flex;
+  justify-content:space-around;
+  flex-wrap:wrap;
+  background:white;
+  padding:30px;
+  margin-top:40px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.stat{
+  text-align:center;
+  margin:10px;
+}
+
+.stat h2{
+  color:#2874f0;
+}
+
+/* FOOTER */
+footer{
+  background:#172337;
+  color:white;
+  text-align:center;
+  padding:30px;
+  margin-top:40px;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .hero h1{
+    font-size:28px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>About FlipShop</h1>
+  <p>Your Trusted Online Shopping Destination</p>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <div class="grid">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30">
+      <div class="card-content">
+        <h3>Who We Are</h3>
+        <p>
+          FlipShop is a modern e-commerce platform offering electronics,
+          fashion, and lifestyle products at best prices.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9">
+      <div class="card-content">
+        <h3>Our Mission</h3>
+        <p>
+          To deliver high-quality products with fast delivery and best customer experience.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e">
+      <div class="card-content">
+        <h3>Why Choose Us</h3>
+        <p>
+          We provide trusted brands, secure payments, and 24/7 customer support.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+
+    <div class="stat">
+      <h2>10K+</h2>
+      <p>Happy Customers</p>
+    </div>
+
+    <div class="stat">
+      <h2>5K+</h2>
+      <p>Products</p>
+    </div>
+
+    <div class="stat">
+      <h2>100+</h2>
+      <p>Brands</p>
+    </div>
+
+    <div class="stat">
+      <h2>24/7</h2>
+      <p>Support</p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <h2>FlipShop</h2>
+  <p>© 2026 FlipShop.com | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

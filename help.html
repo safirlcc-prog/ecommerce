@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Help & Support - FlipShop</title>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial;
+}
+
+body{
+  background:#f1f3f6;
+}
+
+/* HEADER */
+.header{
+  background:#2874f0;
+  color:white;
+  text-align:center;
+  padding:50px 20px;
+}
+
+.header h1{
+  font-size:35px;
+}
+
+/* CONTAINER */
+.container{
+  width:90%;
+  max-width:1100px;
+  margin:auto;
+  padding:40px 0;
+}
+
+/* FAQ */
+.faq{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.question{
+  background:#2874f0;
+  color:white;
+  padding:12px;
+  margin-top:10px;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.answer{
+  display:none;
+  padding:12px;
+  background:#f5f5f5;
+  border-radius:5px;
+}
+
+/* CONTACT BOX */
+.contact{
+  margin-top:30px;
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.contact input,
+.contact textarea{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+
+.contact button{
+  margin-top:10px;
+  width:100%;
+  padding:12px;
+  border:none;
+  background:#fb641b;
+  color:white;
+  font-size:16px;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.contact button:hover{
+  background:#e85a15;
+}
+
+/* FOOTER */
+footer{
+  background:#172337;
+  color:white;
+  text-align:center;
+  padding:30px;
+  margin-top:40px;
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .header h1{
+    font-size:25px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <h1>Help & Support</h1>
+  <p>We are here to help you 24/7</p>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+
+  <!-- FAQ -->
+  <div class="faq">
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="question" onclick="toggle(this)">How do I place an order?</div>
+    <div class="answer">Go to product page and click Add to Cart, then proceed to checkout.</div>
+
+    <div class="question" onclick="toggle(this)">How can I track my order?</div>
+    <div class="answer">You will get tracking details after order confirmation.</div>
+
+    <div class="question" onclick="toggle(this)">What payment methods are available?</div>
+    <div class="answer">We accept UPI, Credit/Debit Cards, and Cash on Delivery.</div>
+
+    <div class="question" onclick="toggle(this)">How to return a product?</div>
+    <div class="answer">Go to order history and click Return option.</div>
+
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact">
+
+    <h2>Contact Support</h2>
+
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <h2>FlipShop</h2>
+  <p>© 2026 FlipShop.com | All Rights Reserved</p>
+</footer>
+
+<!-- SCRIPT -->
+<script>
+function toggle(el){
+  let ans = el.nextElementSibling;
+  if(ans.style.display === "block"){
+    ans.style.display = "none";
+  } else {
+    ans.style.display = "block";
+  }
+}
+
+
+</script>
+
+</body>
+</html>
